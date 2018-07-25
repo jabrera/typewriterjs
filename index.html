@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>typewriter.js</title>
+	<style>
+		body {
+			font-family: "Times New Roman";
+		}
+		.wrapper {
+			max-width: 960px;
+			padding: 24px;
+			margin: 0px auto;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: 400;
+		}
+		h3 {
+			margin-top: 48px;
+		}
+		hr {
+			border: 0px;
+			border-top: 1px solid rgba(0,0,0,.1);
+		}
+		p {
+			line-height: 150%;
+		}
+		pre {
+			padding: 12px;
+			white-space: pre-line;
+			background: rgba(0,0,0,.05);
+		}
+		table.parameter_info {
+			border-collapse: collapse;
+		}
+		table.parameter_info td {
+			padding: 8px 12px;
+		}
+		table.parameter_info tr:not(:last-child) td {
+			border-bottom: 1px solid #e9e9e9;
+		}
+		table.parameter_info td:first-child {
+			font-weight: bold;
+			border-right: 1px solid #e9e9e9;
+		}
+		ul.parameter {
+			list-style-type: none;
+			padding: 0px;
+		}
+		ul.parameter li {
+			padding: 16px;
+		}
+		ul.parameter li:nth-child(even) {
+			background: rgba(0,0,0,.05);
+		}
+		ul.parameter li:nth-child(odd) {
+			background: rgba(0,0,0,.02);
+		}
+		.sample {
+			display: table;
+			max-width: 250px;
+			height: 200px;
+			background: #005cb9;
+			border: 2px solid #005cb9;
+			margin: 100px auto;
+		}
+		.sample span {
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			color: white;
+			padding: 24px;
+		}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<script src="vendor/jquery.min.js"></script>
+	<script src="dist/typewriter.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Typewriter JS</h1>
+		<hr>
+		<h3>About</h3>
+		<p>Automatically types a text on an element</p>
+		<h3>Prerequisite</h3>
+		<ul>
+			<li>jQuery</li>
+		</ul>
+		<h3>How to use</h3>
+		<p>Call the function to create a new object</p>
+		<pre>new TypeWriter(element, options);</pre>
+		<p>You may also add some options depending on your preferences. options is in JSON format.</p>
+		<pre>new TypeWriter($("#type"), {
+		"data": ["Type this"]
+		});</pre>
+		<h3>Options</h3>
+		<ul class="parameter">
+			<li>
+				<b>data</b>
+				<p>The text you want to display</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Array</td>
+					</tr>
+					<tr>
+						<td>values</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>["Lorem ipsum"]</td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+		<h3>String Codes</h3>
+		<ul class="parameter">
+			<li>
+				<b>></b>
+				<p>Make the animation type faster</p>
+			</li>
+			<li>
+				<b><</b>
+				<p>Make the animation type slower</p>
+			</li>
+			<li>
+				<b>|</b>
+				<p>Pause the animation then continue after 1.5 seconds</p>
+			</li>
+		</ul>
+		<h3>Examples</h3>
+		<table class="parameter_info">
+			<tr>
+				<td>
+					<b>Normal animation</b>
+					<div id="sample1"></div>
+				</td>
+				<td>
+					<b>Code</b>
+					<pre>new TypeWriter($("#sample1"), {})</pre>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<b>Fast animation</b>
+					<div id="sample2"></div>
+				</td>
+				<td>
+					<b>Code</b>
+					<pre>new TypeWriter($("#sample3"), {
+				"data": ["L>>>orem ipsum"]
+			})</pre>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<b>Slow animation</b>
+					<div id="sample3"></div>
+				</td>
+				<td>
+					<b>Code</b>
+					<pre>new TypeWriter($("#sample3"), {
+				"data": ["L<<&lt;orem ipsum"]
+			})</pre>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<b>Fast then slow animation</b>
+					<div id="sample4"></div>
+				</td>
+				<td>
+					<b>Code</b>
+					<pre>new TypeWriter($("#sample4"), {
+				"data": ["L>>>orem <<<<<&lt;ipsum"]
+			})</pre>
+				</td>
+			</tr>
+		</table>
+		<script>
+			new TypeWriter($("#sample1"), {})
+			new TypeWriter($("#sample2"), {
+				"data": ["L>>>orem ipsum"]
+			})
+			new TypeWriter($("#sample3"), {
+				"data": ["L<<<orem ipsum"]
+			})
+			new TypeWriter($("#sample4"), {
+				"data": ["L>>>orem <<<<<<ipsum"]
+			})
+		</script>
+	</div>
+</body>
+</html>
